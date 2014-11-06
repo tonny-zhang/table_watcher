@@ -7,4 +7,5 @@ require(realpath(dirname(__FILE__)).'/../../../modules/api/ShiKuang.class.php');
 //  where a.portal_channel is not null order by b.maxt desc";
 
 // new ShiKuang($sql);
-API_ShiKuang::getSKByAreaid('101010100');
+var_dump(API_ShiKuang::getSKByAreaid('101010100'));
+var_dump(API_ShiKuang::getSKByAreaid('101230305'));

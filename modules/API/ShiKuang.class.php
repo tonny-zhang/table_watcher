@@ -20,9 +20,13 @@ class API_ShiKuang{
 	}
 	public static function getSKByAreaid($areaid){
 		$cache_name = CACHE_TYPE_DATA.CACHE_KEY_SHIKUANG.'_'.$areaid;
-		$cache_data = Store_Memcache::getItem($cache_name);
+		$cache_data = Store_Memcache::getItem($cache_name);var_dump($cache_data);
 		if($cache_data === false){
-			DB::select(ShiKuang::$SQL_INIT." where a.areaid = '$areaid'");
+			$data = DB::select('select * from ('.ShiKuang::$SQL_INIT.") a1 where a1.areaid = '$areaid'");
+			foreach ($data as $value) {
+				Store_Memcache::getItem($cache_name,$value);
+			}
+			return $data;
 		}
 		return $cache_data;
 	}

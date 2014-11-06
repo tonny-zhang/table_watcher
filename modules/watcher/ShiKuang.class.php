@@ -17,13 +17,13 @@ class ShiKuang extends Base implements iBase{
 			'table_name'=> self::$TABLE_NAME,
 			'cache_name'=> self::$CACHE_NAME,
 			'sql_init'=> self::$SQL_INIT,
-			'data_key'=> 'AREAID',
+			'data_key'=> 'areaid',
 		));
 	}
 	public function getModifySQL($prev_rowid){
 		if($prev_rowid){
 			return $SQL_INIT." and b.rowid > '$prev_rowid'";
 		}
-		return false;		
+		return false;
 	}
 }

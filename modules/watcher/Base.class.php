@@ -79,6 +79,8 @@ abstract class Base{
 				$max_rowid = $data['rid'];
 			}
 			$cache_name = $this->cache_name_data.$data[$this->data_key];
+			echo $cache_name.'
+			';
 			Store_Memcache::setItem($cache_name,$data);
 		}
 		$cache_name_heartbeat = $this->cache_name_heartbeat;

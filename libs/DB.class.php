@@ -24,6 +24,7 @@ class DB{
 		for($i=0;$i<$count;$i++){
 			$data = $ret->GetRowAssoc(false);
 			$result[] = $data;
+			$ret->MoveNext();
 		}
 		return $result;
 	}
